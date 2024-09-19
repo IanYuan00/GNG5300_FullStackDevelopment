@@ -115,5 +115,5 @@ class PhoneBook:
 
     # Log operations
     def log_operation(self, operation):
-        with open('logs/activity.log', 'a') as f:
+        with open('./activity.log', 'a') as f:
             f.write(f'{datetime.now()} - {operation}\n')
