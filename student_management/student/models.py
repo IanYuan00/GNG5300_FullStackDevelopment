@@ -7,7 +7,11 @@ class Student(models.Model):
     email = models.EmailField()
     date_of_birth = models.DateField()
     enrollment_date = models.DateField()
-    geade = models.CharField(max_length=2)
+    grade = models.IntegerField()
 
+    def name(self):
+        return f"{self.first_name} {self.last_name}"
+    
     def __str__(self):
-        return self.first_name + ' ' + self.last_name
+        return self.name()
+    
