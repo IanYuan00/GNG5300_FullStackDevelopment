@@ -29,9 +29,9 @@ https://github.com/IanYuan00/GNG5300_FullStackDevelopment/tree/68c7c9aee52c56f0a
 
 Create and avtivate a virtual environment using the following code:
 python -m venv venv
-# On windows:
+On windows:
 venv\Scripts\activate
-# On MacOS or Linux:
+On MacOS or Linux:
 source venv/bin/activate
 
 ### Step 3: Setup the database
