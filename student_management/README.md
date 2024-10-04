@@ -36,6 +36,7 @@ venv\Scripts\activate
 source venv/bin/activate
 
 ### Step 3: Setup the database
+
 Run the migrations to set up theb database schema:
 
 python manage.py makemigrations
@@ -43,13 +44,17 @@ python manage.py makemigrations
 python manage.py migrate
 
 ### Step 4: Create a superuser
+
 Create an admin user to access the Django admin panel:
+
 python manage.py createsuperuser
 
 Follow the prompts to create a superuser account
 
 ### Step 5: Run the development server
+
 Run the following command:
+
 python manage.py runserver
 
 Visit http://127.0.0.1:8000 in your browser to view the application.
