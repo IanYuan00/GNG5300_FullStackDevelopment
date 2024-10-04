@@ -7,7 +7,10 @@ from django.contrib.auth.decorators import login_required
 #DIsplay a list of all students
 def student_index(request):
     students = Student.objects.all().order_by('last_name')
-    return render(request, 'student/index.html', {'students': students})
+    query = request.GET.get('q')  #Get the search query from the request
+    if query:
+        students = students.filter(first_name__icontains=query)
+    return render(request, 'student/index.html', {'students': students, 'query': query})
 
 #Display the details of a single student
 def student_detail(request, pk):
@@ -49,3 +52,10 @@ def student_delete(request, pk):
         student.delete()
         return redirect('student_index')
     return render(request, 'student/delete.html', {'student': student})
+
+def student_search(request):
+    query = request.GET.get('q')  #Get the search query from the request
+    students = None
+    if query:
+        students = Student.objects.filter(first_name__icontains=query) | Student.objects.filter(last_name__icontains=query)
+    return render(request, 'student/search.html', {'students': students, 'query': query})
