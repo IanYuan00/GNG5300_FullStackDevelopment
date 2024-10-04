@@ -3,6 +3,9 @@ from student.models import Student
 from student.forms import StudentForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.contrib.auth import login
+from .forms import SignupForm
+
 
 # Create your views here.
 #DIsplay a list of all students
@@ -67,3 +70,15 @@ def student_search(request):
     if query:
         students = Student.objects.filter(first_name__icontains=query) | Student.objects.filter(last_name__icontains=query)
     return render(request, 'student/search.html', {'students': students, 'query': query})
+
+#User sign up
+def signup(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)  # Automatically log the user in after signup
+            return redirect('student_index')  # Redirect to the homepage or dashboard
+    else:
+        form = SignupForm()
+    return render(request, 'registration/signup.html', {'form': form})

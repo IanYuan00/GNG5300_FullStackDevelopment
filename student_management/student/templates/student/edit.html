@@ -1,12 +1,36 @@
+{% extends 'base.html' %}
+
 {% block title %}
 <h2>Edit {{student.name}}'s information</h2>
 {% endblock title %}
 
 {% block content %}
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }} <!-- Render the form fields automatically -->
-    <button type="submit">Submit Change</button>
-</form>
-<a href="{% url 'student_detail' student.pk %}">Cancel</a> <!-- Link to cancel and go back to student details -->
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header text-center">
+                <h4>Edit {{student.name}}'s information</h4>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }} <!-- Render the form fields automatically -->
+
+                    <!-- Save Changes Button -->
+                    <div class="d-grid mb-3">
+                        <button type="submit" class="btn btn-success" style="width: 200px; margin: 0 auto;">Save
+                            Changes</button>
+                    </div>
+
+                    <!-- Cancel Button -->
+                    <div class="d-grid">
+                        <a href="{% url 'student_detail' student.pk %}" class="btn btn-secondary"
+                            style="width: 200px; margin: 0 auto;">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
 {% endblock content %}

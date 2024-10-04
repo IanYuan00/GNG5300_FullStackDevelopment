@@ -1,13 +1,47 @@
-{% block title %}
-<h2>Login</h2>
-{% endblock %}
+{% extends 'base.html' %}
 
 {% block content %}
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-</form>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header text-center">
+                <h4>Login to Your Account</h4>
+            </div>
+            <div class="card-body">
+                <!-- Login Form -->
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="id_username" class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control" id="id_username"
+                            placeholder="Enter your username">
+                    </div>
 
-<a href="{% url 'student_index' %}">Back to Student List</a>
+                    <div class="mb-3">
+                        <label for="id_password" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" id="id_password"
+                            placeholder="Enter your password">
+                    </div>
+
+                    <div class="d-grid mb-3">
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary"
+                            style="width: 200px; margin: 0 auto;">Login</button>
+                    </div>
+                    <!-- Cancel Button -->
+                    <div class="d-grid">
+                        <a href="{% url 'student_index' %}" class="btn btn-secondary"
+                            style="width: 200px; margin: 0 auto;">Back to student list</a>
+                    </div>
+
+                </form>
+
+                <!-- Message for Users Without an Account -->
+                <p class="text-center mt-3">
+                    Don't have an account? <a href="{% url 'signup' %}">Sign up here</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -56,7 +56,7 @@ ROOT_URLCONF = 'student_management.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,3 +126,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 LOGIN_URL = '/login/'  # Redirect to login page if not logged in
+
+# Redirect users to the homepage after logging in
+LOGIN_REDIRECT_URL = '/'
+
+# Redirect users to homeage after logging out
+LOGOUT_REDIRECT_URL = '/'
+
+
+STATIC_ROOT = BASE_DIR / "staticfiles"

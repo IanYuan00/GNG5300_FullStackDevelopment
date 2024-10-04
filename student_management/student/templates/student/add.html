@@ -1,11 +1,34 @@
+{% extends 'base.html' %}
+
 {% block title %}
 <h2>Add a Student</h2>
 {% endblock title %}
 
 {% block content %}
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }} <!-- Render the form fields automatically -->
-    <button type="submit">Add Student</button>
-</form>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header text-center">
+                <h4>Edit {{student.name}}'s information</h4>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }} <!-- Render the form fields automatically -->
+                    <!-- Add Button -->
+                    <div class="d-grid mb-3">
+                        <button type="submit" class="btn btn-success" style="width: 200px; margin: 0 auto;">Add
+                            student</button>
+                    </div>
+
+                    <!-- Cancel Button -->
+                    <div class="d-grid">
+                        <a href="{% url 'student_index' %}" class="btn btn-secondary"
+                            style="width: 200px; margin: 0 auto;">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}

@@ -1,0 +1,251 @@
+/* Reset styles to ensure consistent appearance */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* General heading style */
+h2 {
+    color: #007bff;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2rem;
+}
+
+/* Link styles */
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* Layout */
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+header h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+nav a {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #0056b3;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="date"],
+form input[type="number"],
+form select {
+    padding: 12px;
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form button[type="submit"] {
+    padding: 15px 25px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: -5px;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+}
+
+table th,
+table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f4f7fa;
+}
+
+table tr:hover {
+    background-color: #e2e6ea;
+}
+
+/* Pagination styles */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin: 0 5px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #0056b3;
+}
+
+.pagination .current {
+    padding: 10px 20px;
+    background-color: #f7f9fc;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Button styles */
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button.cancel {
+    background-color: #6c757d;
+}
+
+button.cancel:hover {
+    background-color: #5a6268;
+}
+
+/* Notification messages */
+.messages {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.messages li {
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.messages .success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.messages .error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    table,
+    form {
+        font-size: 0.9rem;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    form button[type="submit"] {
+        width: auto;
+    }
+}
