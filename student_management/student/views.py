@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from student.models import Student
 from student.forms import StudentForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 #DIsplay a list of all students
@@ -14,18 +15,20 @@ def student_detail(request, pk):
     return render(request, 'student/detail.html', {'student': student})
 
 #Add a new student
+@login_required
 def student_add(request):
-    if request.method == 'POST':
-        form = StudentForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('student_index')
-    else:
-        form = StudentForm()
-        
-    return render(request, 'student/add.html', {'form': form})
-
+    
+        if request.method == 'POST':
+            form = StudentForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('student_index')
+        else:
+            form = StudentForm()
+        return render(request, 'student/add.html', {'form': form})
+    
 #Edit an existing student
+@login_required
 def student_edit(request, pk):
     student = get_object_or_404(Student, pk=pk)
     if request.method == 'POST':
@@ -37,3 +40,12 @@ def student_edit(request, pk):
         form = StudentForm(instance = student)
 
     return render(request, 'student/edit.html', {'form': form, 'student': student})
+
+#Delete a student information
+@login_required
+def student_delete(request, pk):
+    student = get_object_or_404(Student, pk=pk)
+    if request.method == 'POST':
+        student.delete()
+        return redirect('student_index')
+    return render(request, 'student/delete.html', {'student': student})

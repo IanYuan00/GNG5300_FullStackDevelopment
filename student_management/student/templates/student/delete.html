@@ -1,0 +1,16 @@
+{% block title %}
+<h2>Delete Student</h2>
+{% endblock %}
+
+{% block content %}
+{% block student %}
+<h2>Are you sure you want to delete {{ student.first_name }} {{ student.last_name }}?</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+</form>
+
+<a href="{% url 'student_detail' student.pk %}">Cancel</a>
+{% endblock %}
+{% endblock %}
