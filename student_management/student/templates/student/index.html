@@ -30,6 +30,28 @@
     </tbody>
 </table>
 
+<!-- Pagination -->
+<div class="pagination">
+    <span class="step-links">
+        <!-- Previous page link -->
+        {% if students.has_previous %}
+        <a href="?page=1">&laquo; first</a>
+        <a href="?page={{ students.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <!-- Current page number -->
+        <span class="current">
+            Page {{ students.number }} of {{ students.paginator.num_pages }}
+        </span>
+
+        <!-- Next page link -->
+        {% if students.has_next %}
+        <a href="?page={{ students.next_page_number }}">next</a>
+        <a href="?page={{ students.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
 {% endblock %}
 <p><a href="{% url 'student_add' %}">Add a new student</a></p>
 {% endblock %}
