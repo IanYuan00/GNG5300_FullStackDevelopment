@@ -22,6 +22,7 @@ def student_add(request):
             return redirect('student_index')
     else:
         form = StudentForm()
+        
     return render(request, 'student/add.html', {'form': form})
 
 #Edit an existing student
@@ -34,4 +35,5 @@ def student_edit(request, pk):
             return redirect('student_detail', pk=pk)
     else:
         form = StudentForm(instance = student)
+
     return render(request, 'student/edit.html', {'form': form, 'student': student})
