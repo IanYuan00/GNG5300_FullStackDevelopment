@@ -9,6 +9,7 @@ const Home: React.FC = () => {
   const todos = useStore((state) => state.todos);
   const fetchTodos = useStore((state) => state.fetchTodos);
 
+
   useEffect(() => {
     fetchTodos();
   }, []);
