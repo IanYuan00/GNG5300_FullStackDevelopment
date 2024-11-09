@@ -3,7 +3,8 @@ name: Build and Publish Docker image
 on:
   push:
     branches: [main]
-
+    paths:
+      - 'ClassActivities/nextjs-fastapi'
 jobs:
   docker:
     runs-on: ubuntu-latest
