@@ -1,5 +1,0 @@
-langgraph
-langchain-community
-ollama
-pandas
-sqlite3
